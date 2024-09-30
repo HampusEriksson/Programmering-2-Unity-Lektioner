@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
 
     //Attribut
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefabs;
     private float delay = 2f;
 
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Instantiate(enemyPrefab);
+        Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)]);
         delay *= 0.95f;
         delay = Mathf.Max(0.1f, delay);
         Invoke("SpawnEnemy", delay);
