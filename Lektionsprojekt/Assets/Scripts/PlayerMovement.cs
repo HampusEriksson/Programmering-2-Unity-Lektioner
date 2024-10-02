@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     // Attribut
     private int speed = 7;
+    private float hp = 30;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("GAME OVER!");
-        speed = 0;
+        if(collision.gameObject.GetComponent<EnemyMovement>() != null)
+        {
+            hp -= collision.gameObject.GetComponent<EnemyMovement>().damage;
+            Destroy(collision.gameObject);
+              
+        }
+
+        if (hp <= 0)
+        {
+            Debug.Log("GAME OVER!");
+            speed = 0;
+        }
+        
     }
 }

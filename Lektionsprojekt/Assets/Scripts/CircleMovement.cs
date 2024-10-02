@@ -11,6 +11,7 @@ public class CircleMovement : EnemyMovement
     void Start()
     {
         speed = 5;
+        damage = 15;
         float x;
         float y;
         while (true)

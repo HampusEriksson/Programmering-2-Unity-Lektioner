@@ -7,6 +7,7 @@ public abstract class EnemyMovement : MonoBehaviour
 {
     //Attribut
     protected int speed;
+    public float damage;
 
     
 

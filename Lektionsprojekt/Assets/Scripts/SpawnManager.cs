@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -23,7 +24,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)]);
+        GameObject newObject = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)]);
         delay *= 0.95f;
         delay = Mathf.Max(0.1f, delay);
         Invoke("SpawnEnemy", delay);

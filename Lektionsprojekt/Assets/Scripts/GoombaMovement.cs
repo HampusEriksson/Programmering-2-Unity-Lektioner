@@ -9,7 +9,16 @@ public class GoombaMovement : EnemyMovement
     void Start()
     {
         speed = 3;
-        direction = 1;
+        if (Random.Range(0f,1f) < 0.5f)
+        {
+            direction = 1;
+        }
+        else
+        {
+            direction = -1;
+        }
+        
+        damage = Random.Range(3f, 8f);
     }
 
     
