@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     // Attribut
     private int speed = 7;
     private float hp = 30;
+    private float delayResetTime = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,18 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("GAME OVER!");
             speed = 0;
         }
+
+        if (collision.gameObject.CompareTag("Powerup"))
+        {
+            Destroy(collision.gameObject);
+            speed += 20;
+            Invoke("ResetSpeed", delayResetTime);
+        }
         
+    }
+
+    void ResetSpeed()
+    {
+        speed = 7;
     }
 }
